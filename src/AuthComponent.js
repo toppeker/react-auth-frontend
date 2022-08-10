@@ -14,7 +14,7 @@ export default function AuthComponent() {
     // set configurations for the API call here
     const configuration = {
       method: "get",
-      url: "https://demo-marketplace-webapp.azurewebsites.net/auth-endpoint",
+      url: "http://localhost:3000/auth-endpoint", //"https://demo-marketplace-webapp.azurewebsites.net/auth-endpoint",
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -41,7 +41,7 @@ export default function AuthComponent() {
 
   return (
     <div className="text-center">
-      <h1>Auth Component</h1>
+      <h1>Secret Component</h1>
       <h3 className="text-danger">{message}</h3>
       <Button type="submit" variant="danger" onClick={() => logout()}>Logout</Button>
     </div>

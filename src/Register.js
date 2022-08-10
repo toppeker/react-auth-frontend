@@ -14,7 +14,7 @@ export default function Register() {
         // set configurations
         const configuration = {
             method: "post",
-            url: "https://demo-marketplace-webapp.azurewebsites.net/register",
+            url: "http://localhost:3000/register", // "https://demo-marketplace-webapp.azurewebsites.net/register"
             data: {
                 email,
                 password,

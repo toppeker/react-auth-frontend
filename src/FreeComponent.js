@@ -11,7 +11,7 @@ export default function FreeComponent() {
     // set configurations for the API call here
     const configuration = {
       method: "get",
-      url: "https://demo-marketplace-webapp.azurewebsites.net/free-endpoint",
+      url: "http://localhost:3000/free-endpoint", //"https://demo-marketplace-webapp.azurewebsites.net/free-endpoint",
     };
 
     // make the API call

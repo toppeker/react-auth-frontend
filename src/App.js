@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Button } from "react-bootstrap";
 import Account from "./Account";
 import FreeComponent from "./FreeComponent";
 import AuthComponent from "./AuthComponent";
 import ProtectedRoutes from "./ProtectedRoutes";
+import LoggedinComponent from "./LoggedinComponent";
+import "./App.css";
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
           <section id="navigation">
             <a href="/">Home</a>
             <a href="/free">Free Component</a>
-            <a href="/auth">Auth Component</a>
+            <a href="/auth">Secret Component</a>
           </section>
         </Col>
       </Row>
@@ -33,7 +35,12 @@ function App() {
             </ProtectedRoutes>
           }
         />
+        <Route exact path="/loggedin" element={<LoggedinComponent/>} />
+        
       </Routes>
+
+      
+
     </Container>
   );
 }

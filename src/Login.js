@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { AuthService } from "./AuthService";
 
 const cookies = new Cookies();
+const authService = new AuthService();
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -17,13 +19,12 @@ export default function Login() {
         // set configurations
         const configuration = {
             method: "post",
-            url: "https://demo-marketplace-webapp.azurewebsites.net/login",
+            url: "http://localhost:3000/login", //"https://demo-marketplace-webapp.azurewebsites.net/login",
             data: {
                 email,
                 password,
             },
         };
-
         // make the API call
         axios(configuration)
             .then((result) => {
@@ -41,6 +42,12 @@ export default function Login() {
                 error = new Error();
             });
     }
+
+    const handleLyra = (e) => {
+        // prevent the form from refreshing the whole page
+        e.preventDefault();
+        authService.login();
+      }
   
     return (
         <>
@@ -85,6 +92,17 @@ export default function Login() {
                     <p className="text-danger">You Are Not Logged in</p>
                 )}
             </Form>
+
+            
+            {/* submit button */}
+            <Button
+                variant="primary"
+                type="submit"
+                onClick={(e) => handleLyra(e)}
+                >
+                Login with Lyra
+            </Button>
+      
         </>
     )
 }
